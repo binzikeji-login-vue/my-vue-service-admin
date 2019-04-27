@@ -1,0 +1,31 @@
+spring:
+  application:
+    name: my-vue-service-admin
+  datasource:
+    druid:
+      url: jdbc:mysql://39.106.63.182:3307/itoken-service-admin?useUnicode=true&characterEncoding=utf-8&useSSL=false
+      username: root
+      password: bInBin%19712345
+      initial-size: 1
+      min-idle: 1
+      max-active: 20
+      test-on-borrow: true
+      # MySQL 8.x: com.mysql.cj.jdbc.Driver
+      driver-class-name: com.mysql.jdbc.Driver
+  redis:
+    lettuce:
+      pool:
+        max-active: 8
+        max-idle: 8
+        max-wait: -1ms
+        min-idle: 0
+    sentinel:
+      master: mymaster
+      nodes: 192.168.62.138:26379,192.168.62.138:26380,192.168.62.138:26381
+
+mybatis:
+  type-aliases-package: com.binzikeji.my.vue.service.admin.entiey
+  mapper-locations: classpath:mapper/*.xml
+
+server:
+  port: 8010
