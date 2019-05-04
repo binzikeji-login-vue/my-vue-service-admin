@@ -1,5 +1,9 @@
 package com.binzikeji.my.vue.service.admin.entiey;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonUnwrapped;
+
 import java.math.BigDecimal;
 import java.util.Date;
 import javax.persistence.*;
@@ -29,6 +33,7 @@ public class TbSysUser {
     /**
      * 登录密码
      */
+    @JsonIgnore
     private String password;
 
     /**
