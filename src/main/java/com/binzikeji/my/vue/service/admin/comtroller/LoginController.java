@@ -7,9 +7,7 @@ import com.binzikeji.my.vue.service.admin.service.RedisService;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import utils.CookieUtils;
-import utils.MapperUtils;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -34,12 +32,9 @@ public class LoginController {
 
     /**
      * 登录请求
-     * @param loginCode
-     * @param password
-     * @param url
+     * @param map
      * @param request
      * @param response
-     * @param redirectAttributes
      * @return
      */
     @RequestMapping(value = "login", method = RequestMethod.POST)

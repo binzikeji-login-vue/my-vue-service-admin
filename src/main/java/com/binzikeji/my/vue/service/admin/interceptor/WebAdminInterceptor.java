@@ -1,7 +1,6 @@
 package com.binzikeji.my.vue.service.admin.interceptor;
 
 import com.binzikeji.my.vue.service.admin.dto.BaseRestult;
-import com.binzikeji.my.vue.service.admin.entiey.TbSysUser;
 import com.binzikeji.my.vue.service.admin.service.RedisService;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,7 +32,7 @@ public class WebAdminInterceptor implements HandlerInterceptor {
             }
         }
 
-        // 二次确认是否有用户信息
+        // 确认是否有用户信息
         if (!f){
             response.setContentType("text/html;charset=UTF-8");
             response.setHeader("Cache-Control", "no-cache");

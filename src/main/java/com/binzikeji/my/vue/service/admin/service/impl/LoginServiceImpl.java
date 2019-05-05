@@ -1,6 +1,5 @@
 package com.binzikeji.my.vue.service.admin.service.impl;
 
-
 import com.binzikeji.my.vue.service.admin.entiey.TbSysUser;
 import com.binzikeji.my.vue.service.admin.mapper.TbSysUserMapper;
 import com.binzikeji.my.vue.service.admin.service.LoginService;
@@ -37,10 +36,9 @@ public class LoginServiceImpl implements LoginService {
         if (json == null){
             Example example = new Example(TbSysUser.class);
             example.createCriteria().andEqualTo("loginCode", loginCode);
-
             tbSysUser = tbSysUserMapper.selectOneByExample(example);
             String password = DigestUtils.md5DigestAsHex(plantPassword.getBytes());
-
+            // 密码正确
             if (tbSysUser != null && password.equals(tbSysUser.getPassword())){
                 try {
                     redisService.put(loginCode, MapperUtils.obj2json(tbSysUser), 60 * 60 * 24);
@@ -49,7 +47,7 @@ public class LoginServiceImpl implements LoginService {
                 }
                 return tbSysUser;
             }
-
+            // 密码错误
             else {
                 return null;
             }
